@@ -1,12 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Script_pauseMenu : MonoBehaviour
 {
     public GameObject pauseMenu;
     public GameObject gameOverlay;
+    public GameObject settingsMenu;
     public static bool isPaused = false;
     public static bool peekingGame = false;
     public Button zoomInButton;
@@ -72,5 +72,25 @@ public class Script_pauseMenu : MonoBehaviour
     {
         peekingGame = false;
         pauseMenu.SetActive(true);
+    }
+
+    public void openSettings()
+    {
+        pauseMenu.SetActive(false);
+        settingsMenu.SetActive(true);
+    }
+
+    public void closeSettings()
+    {
+        settingsMenu.SetActive(false);
+        pauseMenu.SetActive(true);
+    }
+
+    public void quitToMainMenu()
+    {
+        //saveGame();
+        SceneManager.LoadScene(0);
+        Time.timeScale = 1f;
+        isPaused = false;
     }
 }

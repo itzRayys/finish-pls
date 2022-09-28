@@ -17,6 +17,7 @@ public class Script_player_movement : MonoBehaviour
     {
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
+        
         if (Input.GetButtonDown("sprint")) {
             isRunning = true;
         }
